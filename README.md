@@ -1,2 +1,3 @@
-# EsotericEnderman.github.io
-My personal website.
+# Esoteric Enderman's Website
+
+> My personal website.
