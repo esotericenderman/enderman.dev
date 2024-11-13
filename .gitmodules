@@ -1,0 +1,3 @@
+[submodule "assets/profile"]
+	path = assets/profile
+	url = git@github.com:EsotericEnderman/EsotericEnderman.git
