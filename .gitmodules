@@ -1,3 +1,6 @@
 [submodule "src/profile"]
 	path = src/profile
 	url = git@github.com:EsotericEnderman/EsotericEnderman.git
+[submodule "public/profile"]
+	path = public/profile
+	url = git@github.com:EsotericEnderman/EsotericEnderman.git
