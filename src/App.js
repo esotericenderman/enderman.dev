@@ -1,7 +1,7 @@
 import "./App.css";
 import profilePicture from "./profile/Assets/Profile Picture.png";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -13,5 +13,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
