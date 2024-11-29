@@ -1,6 +1,6 @@
 import "./App.css";
 import "react-scripts";
-import profilePicture from "./profile/Assets/ProfilePicture.png";
+import profilePicture from "./profile/Assets/Profile Picture.png";
 
 export default function App() {
   return (
