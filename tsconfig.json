@@ -1,6 +1,9 @@
 {
-    "compilerOptions": {
-        "lib": ["DOM"],
-        "jsx": "preserve"
-    }
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "preserve",
+    "esModuleInterop": true
+  },
+  "include": ["src"]
 }
