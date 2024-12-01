@@ -1,8 +1,8 @@
-div.repository {
+.repository {
   background-color: #28292b;
 }
 
-h3.repository-name {
+.repository-name {
   font-size: larger;
   margin-top: 10px;
   margin-left: 10px;
