@@ -13,7 +13,7 @@ export default function Repository(repository: RestEndpointMethodTypes["repos"][
   useEffect(() => {
     async function fetchReadme() {
       try {
-        let response = await fetch("https://raw.githubusercontent.com/EsotericEnderman/" + repository.name + "/refs/heads/" + repository.default_branch + "/README.md");
+        let response = await fetch("https://raw.githubusercontent.com/" + repository.owner.login + "/" + repository.name + "/refs/heads/" + repository.default_branch + "/README.md");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
