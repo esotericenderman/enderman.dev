@@ -1,9 +1,12 @@
 .repository {
   background-color: #28292b;
+  display: flex;
+  margin-bottom: 10px;
+  padding: 0px;
 }
 
 .repository-name {
   font-size: larger;
-  margin-top: 10px;
   margin-left: 10px;
+  margin-top: 10px;
 }
