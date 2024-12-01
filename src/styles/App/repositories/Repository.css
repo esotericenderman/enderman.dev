@@ -1,7 +1,8 @@
 .repository {
   background-color: #28292b;
   display: flex;
-  flex-direction: column; /* Change to column if you want vertical stacking */
+  flex-direction: column; /* Stacks name and description vertically */
+  align-items: flex-start; /* Aligns items to the left */
   gap: 5px; /* Adds spacing between elements */
   margin-bottom: 10px;
   padding: 10px;
@@ -10,10 +11,10 @@
 .repository-name {
   font-size: larger;
   font-family: monospace;
-  margin: 0; /* Reset browser default margins */
+  margin: 0; /* Reset inherent margins */
 }
 
 .repository-description {
   font-family: monospace;
-  margin: 0; /* Reset browser default margins */
+  margin: 0; /* Reset inherent margins */
 }
