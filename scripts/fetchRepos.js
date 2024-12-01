@@ -2,7 +2,7 @@
 import { Octokit } from "@octokit/rest";
 import { mkdirSync, writeFileSync } from "fs";
 
-import privateConfig from "config/privateConfig.json" with {type: "json"};
+import privateConfig from "../config/privateConfig.json" with {type: "json"};
 
 const octokit = new Octokit({
   auth: privateConfig.gitHub.token,
