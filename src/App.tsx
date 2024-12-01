@@ -1,5 +1,6 @@
 import "./App.css";
 import profilePicture from "./profile/Assets/Profile Picture.png";
+import ProjectList from "./ProjectList";
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
         <p>
           Interested in <b>math</b>, <b>coding</b>, and <b>video games</b>.
         </p>
+        <ProjectList />
       </header>
     </div>
   );
