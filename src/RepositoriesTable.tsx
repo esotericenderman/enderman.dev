@@ -3,12 +3,12 @@ import { Octokit } from "@octokit/rest";
 import privateConfig from "./config/privateConfig.json";
 
 const octokit = new Octokit({
-  auth: privateConfig.gitHub.password,
+  auth: privateConfig.gitHub.token,
   log: {
     debug: console.debug,
     info: console.info,
     warn: console.warn,
-    error: console.error
+    error: console.error,
   },
 });
 
@@ -17,13 +17,16 @@ const repos: string[] = [];
 octokit.rest.repos
   .listForUser({
     username: "EsotericEnderman",
-    per_page: 1000
+    per_page: 100, // Adjusted to max limit
   })
   .then(({ data }) => {
     data.forEach((repo) => {
       console.log(repo.name);
       repos.push(repo.name);
     });
+  })
+  .catch((error) => {
+    console.error("Error fetching repositories:", error);
   });
 
 console.log(repos);

@@ -1,5 +1,5 @@
 {
     "gitHub": {
-        "password": "PASSWORD"
+        "token": "PASSWORD"
     }
 }
