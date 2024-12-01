@@ -11,7 +11,7 @@ const octokit = new Octokit({
 async function fetchRepositories() {
   const { data } = await octokit.rest.repos.listForUser({
     username: "EsotericEnderman",
-    per_page: 100,
+    per_page: 1000,
     type: "all"
   });
 
