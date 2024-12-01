@@ -1,6 +1,6 @@
 import "./App.css";
 import profilePicture from "./profile/Assets/Profile Picture.png";
-import ProjectList from "./ProjectList";
+import ProjectList from "./repositories/ProjectList";
 
 export default function App() {
   return (

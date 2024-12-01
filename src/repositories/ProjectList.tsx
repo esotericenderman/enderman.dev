@@ -1,4 +1,4 @@
-import RepositoriesTable from './RepositoriesTable';
+import RepositoriesTable from '../RepositoriesTable';
 
 export default function ProjectList() {
     return (
