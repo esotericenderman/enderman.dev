@@ -12,6 +12,8 @@ const octokit = new Octokit({
   },
 });
 
+octokit.rest.users.getAuthenticated().then(console.log).catch(console.error);
+
 const repos: string[] = [];
 
 octokit.rest.repos
