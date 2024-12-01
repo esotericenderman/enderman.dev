@@ -2,7 +2,7 @@ div.repository {
   background-color: #28292b;
 }
 
-p.repository-name {
+h2.repository-name {
   margin-top: 10px;
   margin-left: 10px;
 }
