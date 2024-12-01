@@ -11,6 +11,7 @@ const repos: string[] = [];
 octokit.rest.repos
   .listForUser({
     username: "EsotericEnderman",
+    per_page: 1000
   })
   .then(({ data }) => {
     data.forEach((repo) => {
