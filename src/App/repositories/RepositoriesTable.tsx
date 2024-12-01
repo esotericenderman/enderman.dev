@@ -1,22 +1,6 @@
 import repos from "../../data/repos.json";
+import Repository from "./Repository";
 
 export default function RepositoriesTable() {
-  return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Repository Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {repos.map((repo) => (
-            <tr>
-              <td>{repo.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+  return repos.map((repo) => Repository(repo.name));
 }
