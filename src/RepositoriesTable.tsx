@@ -3,7 +3,13 @@ import { Octokit } from "@octokit/rest";
 import privateConfig from "./config/privateConfig.json";
 
 const octokit = new Octokit({
-  auth: privateConfig.gitHub.password
+  auth: privateConfig.gitHub.password,
+  log: {
+    debug: console.debug,
+    info: console.info,
+    warn: console.warn,
+    error: console.error
+  },
 });
 
 const repos: string[] = [];
