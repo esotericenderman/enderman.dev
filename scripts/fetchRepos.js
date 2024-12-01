@@ -14,8 +14,8 @@ async function fetchRepositories() {
     per_page: 100,
   });
 
-  mkdirSync("data", { recursive: true });
-  writeFileSync("data/repos.json", JSON.stringify(data, null, 2));
+  mkdirSync("src/data", { recursive: true });
+  writeFileSync("src/data/repos.json", JSON.stringify(data, null, 2));
 }
 
 fetchRepositories().catch(console.error);
