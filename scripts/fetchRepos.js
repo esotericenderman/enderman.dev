@@ -12,6 +12,7 @@ async function fetchRepositories() {
   const { data } = await octokit.rest.repos.listForUser({
     username: "EsotericEnderman",
     per_page: 100,
+    type: "all"
   });
 
   mkdirSync("src/data", { recursive: true });
