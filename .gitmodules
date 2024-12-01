@@ -1,6 +1,6 @@
-[submodule "src/profile"]
-	path = src/profile
+[submodule "src/assets/profile"]
+	path = src/assets/profile
 	url = git@github.com:EsotericEnderman/EsotericEnderman.git
-[submodule "public/profile"]
-	path = public/profile
+[submodule "public/assets/profile"]
+	path = public/assets/profile
 	url = git@github.com:EsotericEnderman/EsotericEnderman.git
