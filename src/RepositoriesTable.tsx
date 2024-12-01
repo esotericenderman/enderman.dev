@@ -1,6 +1,6 @@
 import { Octokit } from "@octokit/rest";
 
-import * as privateConfig from "../config/privateConfig.json" with {type: "json"};
+import * as privateConfig from "./config/privateConfig.json";
 
 const octokit = new Octokit({
   authStrategy: privateConfig.gitHub.password
