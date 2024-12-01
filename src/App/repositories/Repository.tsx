@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { RestEndpointMethodTypes } from "@octokit/rest";
 import "../../styles/App/repositories/Repository.css";
 
-export default function Repository(name: string) {
+export default function Repository(repository: RestEndpointMethodTypes["repos"]["listForUser"]["response"]["data"][number]) {
   const [readmeText, setReadmeText] = useState<string>("");
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function Repository(name: string) {
 
   return (
     <div className="repository">
-      <h3 className="repository-name">{name}</h3>
+      <h3 className="repository-name">{repository.name}</h3>
       <pre className="repository-readme">{readmeText}</pre>
     </div>
   );
