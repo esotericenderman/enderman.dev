@@ -6,6 +6,10 @@ export default function Repository(repository: RestEndpointMethodTypes["repos"][
   const [readmeText, setReadmeText] = useState<string>("");
   console.log(readmeText);
 
+  const nameRegex = /(?<=^# ).+(?=(\n|$))/g;
+
+  const name = readmeText.match(nameRegex)?.[0] ?? repository.name;
+
   useEffect(() => {
     async function fetchReadme() {
       try {
@@ -24,8 +28,7 @@ export default function Repository(repository: RestEndpointMethodTypes["repos"][
 
   return (
     <div className="repository">
-      <h3 className="repository-name">{repository.name}</h3>
-      <pre className="repository-readme">{readmeText}</pre>
+      <h3 className="repository-name">{name}</h3>
     </div>
   );
 }
