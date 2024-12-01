@@ -2,7 +2,7 @@ div.repository {
   background-color: #28292b;
 }
 
-h2.repository-name {
+h3.repository-name {
   font-size: larger;
   margin-top: 10px;
   margin-left: 10px;
