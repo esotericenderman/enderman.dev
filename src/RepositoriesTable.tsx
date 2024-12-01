@@ -1,23 +1,23 @@
 import { Octokit } from "@octokit/rest";
 
-export default function RepositoriesTable() {
-  const octokit = new Octokit();
+const octokit = new Octokit();
 
-  const repos: string[] = [];
+const repos: string[] = [];
 
-  octokit.rest.repos
-    .listForUser({
-      username: "EsotericEnderman",
-    })
-    .then(({ data }) => {
-      data.forEach((repo) => {
-        console.log(repo.name);
-        repos.push(repo.name);
-      });
+octokit.rest.repos
+  .listForUser({
+    username: "EsotericEnderman",
+  })
+  .then(({ data }) => {
+    data.forEach((repo) => {
+      console.log(repo.name);
+      repos.push(repo.name);
     });
+  });
 
-  console.log(repos);
+console.log(repos);
 
+export default function RepositoriesTable() {
   return (
     <div>
       <table>
