@@ -26,4 +26,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Private configuration files
-./src/config/privateConfig.json
+src/config/privateConfig.json
