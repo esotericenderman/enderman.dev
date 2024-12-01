@@ -1,20 +1,19 @@
 .repository {
   background-color: #28292b;
   display: flex;
+  flex-direction: column; /* Change to column if you want vertical stacking */
+  gap: 5px; /* Adds spacing between elements */
   margin-bottom: 10px;
-  padding: 0px;
-  justify-content: left;
+  padding: 10px;
 }
 
 .repository-name {
   font-size: larger;
-  margin-left: 10px;
-  margin-top: 10px;
   font-family: monospace;
+  margin: 0; /* Reset browser default margins */
 }
 
 .repository-description {
-  margin-left: 10px;
-  margin-top: 10px;
   font-family: monospace;
+  margin: 0; /* Reset browser default margins */
 }
