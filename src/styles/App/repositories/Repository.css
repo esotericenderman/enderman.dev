@@ -3,6 +3,7 @@ div.repository {
 }
 
 h2.repository-name {
+  font-size: larger;
   margin-top: 10px;
   margin-left: 10px;
 }
