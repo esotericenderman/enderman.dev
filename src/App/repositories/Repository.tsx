@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { RestEndpointMethodTypes } from "@octokit/rest";
 import "../../styles/App/repositories/Repository.css";
+import { getProjectStatus } from "./getProjectStatus";
 
 export default function Repository(repository: RestEndpointMethodTypes["repos"]["listForUser"]["response"]["data"][number]) {
   const [readmeText, setReadmeText] = useState<string>("Loading README.md...");
@@ -8,6 +9,8 @@ export default function Repository(repository: RestEndpointMethodTypes["repos"][
 
   const nameRegex = /(?<=^# ).+(?=\n)|(?<=<h1.+>).+(?=<\/h1>)/g;
   const descriptionRegex = new RegExp(`(?<=${nameRegex.source}\n).+(?=\n)`);
+
+  const projectStatus = getProjectStatus(readmeText);
 
   const name = (repository.private ? "[private]" : readmeText.match(nameRegex)?.[0] ?? repository.name);
   const description = (repository.private ? "This is a private project, but may be released in the future." : readmeText.match(descriptionRegex)?.[0] ?? repository.description);
@@ -31,6 +34,7 @@ export default function Repository(repository: RestEndpointMethodTypes["repos"][
   return (
     <div className="repository">
       <h3 className="repository-name">{name}</h3>
+      <p className="repository-status">{projectStatus}</p>
       <p className="repository-description">{description}</p>
     </div>
   );
