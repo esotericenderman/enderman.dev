@@ -10,7 +10,7 @@ export default function Repository(repository: RestEndpointMethodTypes["repos"][
   const nameRegex = /(?<=^# ).+(?=\n)|(?<=<h1.+>).+(?=<\/h1>)/g;
   const descriptionRegex = new RegExp(`(?<=${nameRegex.source}\n).+(?=\n)`);
 
-  const projectStatus = getProjectStatus(readmeText);
+  const projectStatus = getProjectStatus(repository, readmeText);
 
   const name = (repository.private ? "[private]" : readmeText.match(nameRegex)?.[0] ?? repository.name);
   const description = (repository.private ? "This is a private project, but may be released in the future." : readmeText.match(descriptionRegex)?.[0] ?? repository.description);
