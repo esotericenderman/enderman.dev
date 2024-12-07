@@ -19,3 +19,7 @@
   font-family: monospace;
   margin: 0; /* Reset inherent margins */
 }
+
+.repository-status-maintained {
+  color: #007ec6;
+}
