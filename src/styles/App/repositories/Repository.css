@@ -23,3 +23,7 @@
 .repository-status-maintained {
   color: #007ec6;
 }
+
+.repository-status-completed {
+  color: #97ca00;
+}
