@@ -7,7 +7,7 @@ export default function Repository(repository: RestEndpointMethodTypes["repos"][
   const [readmeText, setReadmeText] = useState<string>("Loading README.md...");
   console.log(readmeText);
 
-  const nameRegex = /(?<=^# ).+(?=\n)|(?<=<h1.+>).+(?=<\/h1>)/g;
+  const nameRegex = /((?<=^# ).+|(?<=<h1.+>).+(?=<\/h1>))(?=[\n\r]+)/g;
   const descriptionRegex = new RegExp(`(?<=${nameRegex.source}\n).+(?=\n)`);
 
   const projectStatus = getProjectStatus(repository, readmeText);
