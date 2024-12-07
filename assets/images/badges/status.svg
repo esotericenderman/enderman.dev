@@ -3,7 +3,7 @@
     <title>STATUS: MAINTAINED</title>
     <g shape-rendering="crispEdges">
         <rect width="71.5" height="28" fill="#555"/>
-        <rect x="71.5" width="110.5" height="28" fill="#97ca00"/>
+        <rect x="71.5" width="110.5" height="28" fill="#007ec6"/>
     </g>
     <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100">
         <text transform="scale(.1)" x="357.5" y="175" textLength="475" fill="#fff">STATUS</text>
