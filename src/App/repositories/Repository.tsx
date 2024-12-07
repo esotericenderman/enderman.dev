@@ -3,7 +3,7 @@ import { RestEndpointMethodTypes } from "@octokit/rest";
 import "../../styles/App/repositories/Repository.css";
 
 export default function Repository(repository: RestEndpointMethodTypes["repos"]["listForUser"]["response"]["data"][number]) {
-  const [readmeText, setReadmeText] = useState<string>("");
+  const [readmeText, setReadmeText] = useState<string>("Loading README.md...");
   console.log(readmeText);
 
   const nameRegex = /(?<=^# ).+(?=\n)/g;
