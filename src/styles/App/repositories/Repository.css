@@ -30,3 +30,7 @@
 .repository-status-completed {
   color: #97ca00;
 }
+
+.repository-status-abandoned {
+  color: #e05d44;
+}
