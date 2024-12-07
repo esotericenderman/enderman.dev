@@ -15,7 +15,7 @@
   margin: 0; /* Reset inherent margins */
 }
 
-.repository-description {
+.repository-description, .repository-status {
   font-family: monospace;
   margin: 0; /* Reset inherent margins */
 }
