@@ -33,7 +33,7 @@ export default function Repository(repository: RestEndpointMethodTypes["repos"][
 
   return (
     <div className="repository">
-      <h3 className="repository-name">{name}</h3>
+      <a className="repository-name" href={"https://github.com/" + repository.full_name}><h3 className="repository-name">{name}</h3></a>
       <p className={`repository-status repository-status-${projectStatus}`}>{projectStatus || "unknown"}</p>
       <p className="repository-description">{description}</p>
     </div>

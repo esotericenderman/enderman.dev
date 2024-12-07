@@ -10,6 +10,9 @@
 }
 
 .repository-name {
+  font-style: normal;
+  color: white;
+  text-decoration: none;
   font-size: larger;
   font-family: monospace;
   margin: 0; /* Reset inherent margins */
