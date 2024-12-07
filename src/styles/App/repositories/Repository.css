@@ -4,7 +4,8 @@
   flex-direction: column; /* Stacks name and description vertically */
   align-items: flex-start; /* Aligns items to the left */
   gap: 5px; /* Adds spacing between elements */
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
   padding: 10px;
 }
 
