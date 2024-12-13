@@ -8,14 +8,28 @@ const octokit = new Octokit({
   auth: privateConfig.gitHub.token,
 });
 
-async function fetchRepositories() {
-  const { data } = await octokit.rest.repos.listForAuthenticatedUser({
-    per_page: 1000,
-    affiliation: "owner,collaborator,organization_member"
-  });
+let page = 0;
 
+async function fetchRepositories() {
+  const allRepos = [];
+
+  while (true) {
+    const { data } = await octokit.rest.repos.listForAuthenticatedUser({
+      per_page: 100,
+      page: page,
+      affiliation: "owner,collaborator,organization_member",
+    });
+  
+    allRepos.push(...data);
+  
+    // Break if there's no more data
+    if (data.length < 100) break;
+  
+    page++;
+  }
+  
   mkdirSync("src/data", { recursive: true });
-  writeFileSync("src/data/repos.json", JSON.stringify(data, null, 2));
+  writeFileSync("src/data/repos.json", JSON.stringify(allRepos, null, 2));
 }
 
 fetchRepositories().catch(console.error);
