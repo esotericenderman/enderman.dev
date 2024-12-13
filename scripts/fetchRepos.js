@@ -11,7 +11,7 @@ const octokit = new Octokit({
 let page = 0;
 
 async function fetchRepositories() {
-  const allRepos = [];
+  let allRepos = [];
 
   while (true) {
     const { data } = await octokit.rest.repos.listForAuthenticatedUser({
@@ -27,7 +27,9 @@ async function fetchRepositories() {
   
     page++;
   }
-  
+
+  allRepos = allRepos.filter((repo, index, self) => self.findIndex((r) => r.id === repo.id) === index);
+
   mkdirSync("src/data", { recursive: true });
   writeFileSync("src/data/repos.json", JSON.stringify(allRepos, null, 2));
 }
