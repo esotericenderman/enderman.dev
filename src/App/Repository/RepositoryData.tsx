@@ -5,13 +5,15 @@ export class RepositoryData {
     public readonly id: number;
     public readonly name: string;
     public readonly description: string;
+    public readonly owner: string;
     public readonly status: ProjectStatus;
     public readonly isPrivate: boolean;
 
-    constructor(id: number, name: string, description: string, status: ProjectStatus, isPrivate: boolean) {
+    constructor(id: number, name: string, description: string, owner: string, status: ProjectStatus, isPrivate: boolean) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.owner = owner;
         this.status = status;
         this.isPrivate = isPrivate;
     }
@@ -43,6 +45,6 @@ export class RepositoryData {
         const name = repository.private ? "[private]" : readmeContent?.match(nameRegex)?.[0] ?? repository.name;
         const description = repository.private ? "This is a private project, but may be released in the future." : readmeContent?.match(descriptionRegex)?.[0] ?? repository.description;
 
-        return new RepositoryData(repository.id, name, description!, status!, repository.private);
+        return new RepositoryData(repository.id, name, description!, repository.owner.login, status!, repository.private);
     }
 }
