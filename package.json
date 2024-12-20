@@ -1,5 +1,4 @@
 {
-  "homepage": "https://enderman.dev",
   "dependencies": {
     "@octokit/rest": "^21.0.2",
     "@testing-library/jest-dom": "^5.17.0",
