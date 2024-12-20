@@ -18,10 +18,10 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build --cname enderman.dev",
-    "fetchRepos": "node scripts/fetchRepos.js",
-    "start": "npm run fetchRepos && react-scripts start",
-    "build": "npm run fetchRepos && react-scripts build",
-    "test": "npm run fetchRepos && react-scripts test",
+    "preBuild": "bash ./scripts/preBuild.bash",
+    "start": "npm run preBuild && react-scripts start",
+    "build": "npm run preBuild && react-scripts build",
+    "test": "npm run preBuild && react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
