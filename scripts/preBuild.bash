@@ -1,1 +1,1 @@
-node ./scripts/fetchRepos.js
+npx tsx ./scripts/fetchRepos.ts
