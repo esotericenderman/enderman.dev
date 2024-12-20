@@ -6,12 +6,14 @@ export class RepositoryData {
     public readonly name: string;
     public readonly description: string;
     public readonly status: ProjectStatus;
+    public readonly isPrivate: boolean;
 
-    constructor(id: number, name: string, description: string, status: ProjectStatus) {
+    constructor(id: number, name: string, description: string, status: ProjectStatus, isPrivate: boolean) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.status = status;
+        this.isPrivate = isPrivate;
     }
 
     public static async fromGitHubRepository(repository: GitHubRepository, octokit: Octokit): Promise<RepositoryData | null> {
@@ -41,6 +43,6 @@ export class RepositoryData {
         const name = repository.private ? "[private]" : readmeContent?.match(nameRegex)?.[0] ?? repository.name;
         const description = repository.private ? "This is a private project, but may be released in the future." : readmeContent?.match(descriptionRegex)?.[0] ?? repository.description;
 
-        return new RepositoryData(repository.id, name, description!, status!);
+        return new RepositoryData(repository.id, name, description!, status!, repository.private);
     }
 }
