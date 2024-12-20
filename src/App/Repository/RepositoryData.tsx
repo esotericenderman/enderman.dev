@@ -2,11 +2,13 @@ import { Octokit } from "@octokit/rest";
 import { GitHubRepository } from "../../types/GitHubRepository";
 
 export class RepositoryData {
+    public readonly id: number;
     public readonly name: string;
     public readonly description: string;
     public readonly status: ProjectStatus;
 
-    constructor(name: string, description: string, status: ProjectStatus) {
+    constructor(id: number, name: string, description: string, status: ProjectStatus) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.status = status;
@@ -35,6 +37,6 @@ export class RepositoryData {
         const name = (repository.private ? "[private]" : readmeContent.match(nameRegex)?.[0] ?? repository.name);
         const description = (repository.private ? "This is a private project, but may be released in the future." : readmeContent.match(descriptionRegex)?.[0] ?? repository.description);
 
-        return new RepositoryData(name, description!, status!);
+        return new RepositoryData(repository.id, name, description!, status!);
     }
 }
