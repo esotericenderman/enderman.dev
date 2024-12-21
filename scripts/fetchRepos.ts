@@ -23,7 +23,7 @@ async function fetchRepositories() {
     })).data as GitHubRepository[];
   
     for (const repo of repositories) {
-      if (allRepos.some((r) => r.id === data.id)) continue;
+      if (allRepos.some((r) => r.id === repo.id)) continue;
 
       const data = (await RepositoryData.fromGitHubRepository(repo, octokit))!
 
