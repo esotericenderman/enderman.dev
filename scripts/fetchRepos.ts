@@ -23,7 +23,11 @@ async function fetchRepositories() {
     })).data as GitHubRepository[];
   
     for (const repo of repositories) {
-      allRepos.push((await RepositoryData.fromGitHubRepository(repo, octokit))!);
+      if (allRepos.some((r) => r.id === data.id)) continue;
+
+      const data = (await RepositoryData.fromGitHubRepository(repo, octokit))!
+
+      allRepos.push(data);
     }
 
     // Break if there's no more data
@@ -31,8 +35,6 @@ async function fetchRepositories() {
   
     page++;
   }
-
-  allRepos = allRepos.filter((repo, index, self) => self.findIndex((r) => r.id === repo.id) === index);
 
   mkdirSync("src/data", { recursive: true });
   writeFileSync("src/data/repos.json", JSON.stringify(allRepos, null, 2));
