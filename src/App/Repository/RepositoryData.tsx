@@ -45,7 +45,7 @@ export class RepositoryData {
         const status = readmeContent?.match?.(regex)?.[0]?.toLowerCase() as ProjectStatus | undefined;
 
         const name = readmeContent?.match(nameRegex)?.[0] ?? repository.name;
-        const description = repository.private ? "This is a private project, but may be released in the future." : readmeContent?.match(descriptionRegex)?.[0] ?? repository.description;
+        const description = readmeContent?.match(descriptionRegex)?.[0] ?? repository.description;
 
         return new RepositoryData(repository.id, repository.name, name, description!, repository.owner.login, status!, repository.private);
     }
