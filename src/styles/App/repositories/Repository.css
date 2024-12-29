@@ -34,3 +34,7 @@
 .repository-status-abandoned {
   color: #e05d44;
 }
+
+.repository-status-unfinished {
+  color: #dfb317;
+}
