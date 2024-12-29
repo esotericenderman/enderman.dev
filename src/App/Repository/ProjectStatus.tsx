@@ -1,1 +1,1 @@
-type ProjectStatus = "abandoned" | "completed" | "maintained" | "not completed";
+type ProjectStatus = "abandoned" | "completed" | "maintained" | "unfinished";

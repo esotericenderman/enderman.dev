@@ -40,9 +40,9 @@ export class RepositoryData {
         const nameRegex = /((?<=^# ).+|(?<=<h1.+>).+(?=<\/h1>))(?=[\n\r]+)/g;
         const descriptionRegex = new RegExp(`(?<=${nameRegex.source}\n).+(?=\n)`);
 
-        const regex = /(?<=!\[Project Status: )(Abandoned|Completed|Maintained)(?=\]\(.+\))/g;
+        const regex = /(?<=!\[Project Status: )(Abandoned|Completed|Maintained|Unfinished)(?=\]\(.+\))/g;
 
-        let status = ([...readmeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "not completed") as ProjectStatus;
+        let status = ([...readmeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "unfinished") as ProjectStatus;
 
         const name = readmeContent?.match(nameRegex)?.[0] ?? repository.name;
         const description = readmeContent?.match(descriptionRegex)?.[0] ?? repository.description;
