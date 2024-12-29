@@ -21,7 +21,7 @@ export class RepositoryData {
     }
 
     public static async fromGitHubRepository(repository: GitHubRepository, octokit: Octokit): Promise<RepositoryData | null> {
-        let readmeContent: string | undefined = undefined;
+        let readmeContent = "";
 
         try {
             const response = await octokit.rest.repos.getContent({
@@ -42,11 +42,11 @@ export class RepositoryData {
 
         const regex = /(?<=!\[Project Status: )(Abandoned|Completed|Maintained)(?=\]\(.+\))/g;
 
-        const status = !readmeContent ? undefined : [...readmeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() as ProjectStatus | undefined;
+        let status = ([...readmeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "not completed") as ProjectStatus;
 
         const name = readmeContent?.match(nameRegex)?.[0] ?? repository.name;
         const description = readmeContent?.match(descriptionRegex)?.[0] ?? repository.description;
 
-        return new RepositoryData(repository.id, repository.name, name, description!, repository.owner.login, status!, repository.private);
+        return new RepositoryData(repository.id, repository.name, name, description!, repository.owner.login, status, repository.private);
     }
 }
