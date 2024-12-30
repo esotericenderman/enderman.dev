@@ -1,6 +1,7 @@
 .repositories-table {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusts the number of columns based on screen size */
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Decrease min width to fit more items per row */
+  width: 3000px;
   gap: 20px; /* Adds spacing between grid items */
   padding: 20px; /* Adds padding around the grid */
 }
