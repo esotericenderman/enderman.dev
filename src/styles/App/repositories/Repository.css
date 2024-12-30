@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Decrease min width to fit more items per row */
   width: 3000px;
-  gap: 20px; /* Adds spacing between grid items */
+  gap: 20px 40px; /* Adds spacing between grid items */
   padding: 20px; /* Adds padding around the grid */
 }
 
