@@ -19,7 +19,7 @@
 }
 
 .repository:hover {
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better visual hierarchy */
+  box-shadow: 0 16px 20px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better visual hierarchy */
 }
 
 .repository-name {
