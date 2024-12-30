@@ -27,16 +27,9 @@
   font-size: 40px;
 }
 
-.repository-description, .repository-status {
+.repository-status {
   font-family: monospace;
   margin: 0; /* Reset inherent margins */
-}
-
-.repository-description {
-  font-size: 35px;
-}
-
-.repository-status {
   font-size: 30px;
 }
 
