@@ -18,6 +18,10 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better visual hierarchy */
 }
 
+.repository-link {
+  text-decoration: none;
+}
+
 .repository:hover {
   box-shadow: 0 16px 20px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better visual hierarchy */
 }
