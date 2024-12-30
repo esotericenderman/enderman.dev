@@ -3,5 +3,5 @@ import Repository from "./Repository";
 import { RepositoryData } from "./RepositoryData";
 
 export default function RepositoriesTable() {
-  return repos.sort((a, b) => ((a.isPrivate ? 1 : 0) - (b.isPrivate ? 1 : 0))).map((repo) => Repository(repo as RepositoryData));
+    return <div className="repositories-table">{repos.sort((a, b) => (a.isPrivate ? 1 : 0) - (b.isPrivate ? 1 : 0)).map((repo) => Repository(repo as RepositoryData))}</div>;
 }
