@@ -1,3 +1,8 @@
+.repositories-table {
+  display: grid;
+  grid-template-columns: 5;
+}
+
 .repository {
   background-color: #28292b;
   display: flex;
@@ -7,6 +12,7 @@
   margin-bottom: 20px;
   border-radius: 10px;
   padding: 10px;
+  width: 800px;
 }
 
 .repository-name {
@@ -16,11 +22,20 @@
   font-size: larger;
   font-family: monospace;
   margin: 0; /* Reset inherent margins */
+  font-size: 40px;
 }
 
 .repository-description, .repository-status {
   font-family: monospace;
   margin: 0; /* Reset inherent margins */
+}
+
+.repository-description {
+  font-size: 35px;
+}
+
+.repository-status {
+  font-size: 30px;
 }
 
 .repository-status-maintained {
