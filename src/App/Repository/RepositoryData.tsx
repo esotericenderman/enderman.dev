@@ -37,7 +37,7 @@ export class RepositoryData {
             readmeContent = Buffer.from(response.data.content!, "base64").toString("utf8");
         } catch (error) {}
 
-        const nameRegex = /((?<=^# ).+|(?<=<h1.+>).+(?=<\/h1>))(?=[\n\r]+)/g;
+        const nameRegex = /(((?<=^# ).+)|((?<=<h1.+>).+(?=<\/h1>)))/g;
         const descriptionRegex = new RegExp(`(?<=${nameRegex.source}\n).+(?=\n)`);
 
         const regex = /(?<=!\[Project Status: )(Abandoned|Completed|Maintained|Unfinished)(?=\]\(.+\))/g;
