@@ -44,7 +44,42 @@ export class RepositoryData {
 
         const isOwned = repository.permissions?.admin ?? false;
 
-        let status = (!isOwned ? "contributed" : [...readmeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "unfinished") as ProjectStatus;
+        let pullRequests = null;
+        let mergedPullRequests = null;
+
+        if (repository.fork) {
+            const repoDetails = (await octokit.repos.get({ owner: repository.owner.login, repo: repository.name })).data;
+
+            const upstream = repoDetails.parent;
+
+            if (upstream) {
+                console.log(upstream.owner.login, upstream.name);
+
+                const pulls = (await octokit.pulls.list({
+                    owner: upstream.owner.login,
+                    repo: upstream.name,
+                    state: "all"
+                })).data.filter((pull) => {
+                    console.log(pull.head.repo.owner.login);
+
+                    return pull.head.repo.owner.login === repository.owner.login
+                });
+
+                pullRequests = pulls;
+
+                const merged = pulls.filter((pull) => pull.state === "closed" && pull.merged_at !== null);
+
+                mergedPullRequests = merged.filter((pull) => pull.base.repo.name === repository.name);
+            }
+        }
+
+        const total = pullRequests?.length ?? 0;
+        const merged = mergedPullRequests?.length ?? 0;
+
+        console.log(total);
+        console.log(merged);
+
+        let status = (!isOwned || (total !== 0 && merged !== 0) ? "contributed" : [...readmeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "unfinished") as ProjectStatus;
 
         const name = readmeContent?.match(nameRegex)?.[0] ?? repository.name;
         const description = readmeContent?.match(descriptionRegex)?.[0] ?? repository.description;
