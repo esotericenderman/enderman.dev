@@ -60,9 +60,9 @@ export class RepositoryData {
                     repo: upstream.name,
                     state: "all"
                 })).data.filter((pull) => {
-                    console.log(pull.head.repo.owner.login);
+                    console.log(pull.head.repo?.owner?.login);
 
-                    return pull.head.repo.owner.login === repository.owner.login
+                    return pull.head.repo?.owner?.login === repository.owner.login
                 });
 
                 pullRequests = pulls;
@@ -75,6 +75,10 @@ export class RepositoryData {
 
         const total = pullRequests?.length ?? 0;
         const merged = mergedPullRequests?.length ?? 0;
+
+        if (total !== 0) {
+            return null;
+        }
 
         console.log(total);
         console.log(merged);
