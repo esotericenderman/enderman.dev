@@ -42,7 +42,9 @@ export class RepositoryData {
 
         const regex = /(?<=!\[Project Status: )(Abandoned|Completed|Maintained|Unfinished)(?=\]\(.+\))/g;
 
-        let status = ([...readmeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "unfinished") as ProjectStatus;
+        const isOwned = repository.permissions?.admin ?? false;
+
+        let status = (!isOwned ? "contributed" : [...readmeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "unfinished") as ProjectStatus;
 
         const name = readmeContent?.match(nameRegex)?.[0] ?? repository.name;
         const description = readmeContent?.match(descriptionRegex)?.[0] ?? repository.description;

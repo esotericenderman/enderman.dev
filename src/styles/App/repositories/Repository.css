@@ -53,3 +53,7 @@
 .repository-status-unfinished {
   color: #dfb317;
 }
+
+.repository-status-contributed {
+  color: gold;
+}
