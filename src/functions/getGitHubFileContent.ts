@@ -5,18 +5,18 @@ export async function getGitHubFileContent(octokit: Octokit, repository: GitHubR
     let response;
     
     try {
-        response = await octokit.rest.repos.getContent({
+        response = (await octokit.rest.repos.getContent({
             owner: repository.owner.login,
             repo: repository.name,
             path,
-        });
+        })).data;
     } catch (error) {
         return null;
     }
 
-    if (Array.isArray(response.data) || response.data.type !== "file") {
+    if (Array.isArray(response) || response.type !== "file") {
         return null;
     }
 
-    return Buffer.from(response.data.content!, "base64").toString("utf8");
+    return Buffer.from(response.content!, "base64").toString("utf8");
 }
