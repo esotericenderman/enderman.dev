@@ -1,5 +1,8 @@
 import { Octokit } from "@octokit/rest";
 import { GitHubRepository } from "../types/GitHubRepository";
+import { GitHubUser } from "../types/GitHubUser";
+import { GitHubOrganisation } from "../types/GitHubOrganisation";
+import { isRepositoryOwned } from "./isRepositoryOwned";
 
 export async function getGitHubRepositoryStatus(octokit: Octokit, repository: GitHubRepository, readMeContent: string | null) {
     if (readMeContent === null) {
@@ -47,7 +50,16 @@ export async function getGitHubRepositoryStatus(octokit: Octokit, repository: Gi
     const regex = /(?<=!\[Project Status: )(Abandoned|Completed|Maintained|Unfinished)(?=\]\(.+\))/g;
 
     const merged = mergedPullRequests?.length ?? 0;
-    const isOwned = repository.permissions?.admin ?? false;
+
+    const owner = repository.owner.login;
+
+    let entity: GitHubUser | GitHubOrganisation = (await octokit.users.getByUsername({ username: owner })).data;
+
+    if (!entity) {
+        entity = (await octokit.orgs.get({ org: owner })).data
+    }
+
+    const isOwned = isRepositoryOwned(octokit, repository, entity);
 
     if (!isOwned || (total !== 0 && merged !== 0)) {
         return "contributed";
