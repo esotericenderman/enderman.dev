@@ -1,6 +1,7 @@
 import { Octokit } from "@octokit/rest";
 import { GitHubRepository } from "../../types/GitHubRepository";
 import { getGitHubFileContent } from "../../functions/getGitHubFileContent";
+import { getGitHubRepositoryStatus } from "../../functions/getGitHubRepositoryStatus";
 
 export class RepositoryData {
     public readonly id: number;
@@ -27,50 +28,11 @@ export class RepositoryData {
         const nameRegex = /(((?<=^# ).+)|((?<=<h1.+>).+(?=<\/h1>)))/g;
         const descriptionRegex = new RegExp(`(?<=${nameRegex.source}\n).+(?=\n)`);
 
-        const regex = /(?<=!\[Project Status: )(Abandoned|Completed|Maintained|Unfinished)(?=\]\(.+\))/g;
+        const status = await getGitHubRepositoryStatus(octokit, repository, readMeContent);
 
-        const isOwned = repository.permissions?.admin ?? false;
-
-        let pullRequests = null;
-        let mergedPullRequests = null;
-
-        if (repository.fork) {
-            const repoDetails = (await octokit.repos.get({ owner: repository.owner.login, repo: repository.name })).data;
-
-            const upstream = repoDetails.parent;
-
-            if (upstream) {
-                console.log(upstream.owner.login, upstream.name);
-
-                const pulls = (await octokit.pulls.list({
-                    owner: upstream.owner.login,
-                    repo: upstream.name,
-                    state: "all"
-                })).data.filter((pull) => {
-                    console.log(pull.head.repo?.owner?.login);
-
-                    return pull.head.repo?.owner?.login === repository.owner.login
-                });
-
-                pullRequests = pulls;
-
-                const merged = pulls.filter((pull) => pull.state === "closed" && pull.merged_at !== null);
-
-                mergedPullRequests = merged.filter((pull) => pull.base.repo.name === repository.name);
-            }
-        }
-
-        const total = pullRequests?.length ?? 0;
-        const merged = mergedPullRequests?.length ?? 0;
-
-        if (total !== 0) {
+        if (status === null) {
             return null;
         }
-
-        console.log(total);
-        console.log(merged);
-
-        let status = (!isOwned || (total !== 0 && merged !== 0) ? "contributed" : [...readMeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "unfinished") as ProjectStatus;
 
         const name = readMeContent?.match(nameRegex)?.[0] ?? repository.name;
         const description = readMeContent?.match(descriptionRegex)?.[0] ?? repository.description;
