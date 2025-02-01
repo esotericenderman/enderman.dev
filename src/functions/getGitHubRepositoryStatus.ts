@@ -5,10 +5,6 @@ import { GitHubOrganisation } from "../types/GitHubOrganisation";
 import { isRepositoryOwned } from "./isRepositoryOwned";
 
 export async function getGitHubRepositoryStatus(octokit: Octokit, repository: GitHubRepository, readMeContent: string | null) {
-    if (readMeContent === null) {
-        return "unfinished";
-    }
-
     let pullRequests = null;
     let mergedPullRequests = null;
 
@@ -63,6 +59,10 @@ export async function getGitHubRepositoryStatus(octokit: Octokit, repository: Gi
 
     if (!isOwned || (total !== 0 && merged !== 0)) {
         return "contributed";
+    }
+
+    if (readMeContent === null) {
+        return "unfinished";
     }
 
     const match = [...readMeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "unfinished";
