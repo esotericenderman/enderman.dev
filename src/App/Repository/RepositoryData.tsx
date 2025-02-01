@@ -1,5 +1,6 @@
 import { Octokit } from "@octokit/rest";
 import { GitHubRepository } from "../../types/GitHubRepository";
+import { getGitHubFileContent } from "../../functions/getFileContent";
 
 export class RepositoryData {
     public readonly id: number;
@@ -21,21 +22,7 @@ export class RepositoryData {
     }
 
     public static async fromGitHubRepository(repository: GitHubRepository, octokit: Octokit): Promise<RepositoryData | null> {
-        let readmeContent = "";
-
-        try {
-            const response = await octokit.rest.repos.getContent({
-                owner: repository.owner.login,
-                repo: repository.name,
-                path: "README.md",
-            });
-
-            if (Array.isArray(response.data) || response.data.type !== "file") {
-                return null;
-            }
-
-            readmeContent = Buffer.from(response.data.content!, "base64").toString("utf8");
-        } catch (error) {}
+        const readMeContent = await getGitHubFileContent(octokit, repository, "README.md");
 
         const nameRegex = /(((?<=^# ).+)|((?<=<h1.+>).+(?=<\/h1>)))/g;
         const descriptionRegex = new RegExp(`(?<=${nameRegex.source}\n).+(?=\n)`);
@@ -83,10 +70,10 @@ export class RepositoryData {
         console.log(total);
         console.log(merged);
 
-        let status = (!isOwned || (total !== 0 && merged !== 0) ? "contributed" : [...readmeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "unfinished") as ProjectStatus;
+        let status = (!isOwned || (total !== 0 && merged !== 0) ? "contributed" : [...readMeContent.matchAll(regex)]?.findLast(() => true)?.[0]?.toLowerCase() ?? "unfinished") as ProjectStatus;
 
-        const name = readmeContent?.match(nameRegex)?.[0] ?? repository.name;
-        const description = readmeContent?.match(descriptionRegex)?.[0] ?? repository.description;
+        const name = readMeContent?.match(nameRegex)?.[0] ?? repository.name;
+        const description = readMeContent?.match(descriptionRegex)?.[0] ?? repository.description;
 
         return new RepositoryData(repository.id, repository.name, name, description!, repository.owner.login, status, repository.private);
     }
