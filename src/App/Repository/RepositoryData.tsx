@@ -1,6 +1,6 @@
 import { Octokit } from "@octokit/rest";
 import { GitHubRepository } from "../../types/GitHubRepository";
-import { getGitHubFileContent } from "../../functions/getFileContent";
+import { getGitHubFileContent } from "../../functions/getGitHubFileContent";
 
 export class RepositoryData {
     public readonly id: number;
