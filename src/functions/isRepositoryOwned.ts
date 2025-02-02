@@ -30,6 +30,13 @@ export async function isRepositoryOwned(octokit: Octokit, repository: GitHubRepo
 
     console.log(`The repository is owned by the organisation ${org.login}.`);
 
+    console.log(`Organisation roles: `);
+
+    (await octokit.orgs.listOrgRoles({ org: org.login })).data.roles?.forEach((role) => {
+        console.log(`Found role: ${role.name}`);
+        console.log(`Permissions: ${role.permissions}`);
+    })
+
     const admins = (await octokit.orgs.listMembers({org: org.login, role: "admin"})).data;
 
     if (admins.length >= 2) {
