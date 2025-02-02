@@ -70,7 +70,11 @@ export async function isRepositoryOwned(octokit: Octokit, repository: GitHubRepo
     if (myPermissionLevel === "admin") {
         console.log("Counting myself as an admin of this repository...");
 
-        admins.push((await octokit.users.getByUsername({username: user})).data)
+        if (!admins.some((admin) => admin.login === user)) {
+            console.log("I am not yet counted as an admin, adding to list of admins...");
+
+            admins.push((await octokit.users.getByUsername({username: user})).data)
+        }
     }
 
     if (admins.length >= 2) {
