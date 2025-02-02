@@ -5,15 +5,21 @@ import { GitHubOrganisation } from "../types/GitHubOrganisation";
 import { isRepositoryOwned } from "./isRepositoryOwned";
 
 export async function getGitHubRepositoryStatus(octokit: Octokit, repository: GitHubRepository, readMeContent: string | null) {
+    console.log(`Calculating project status for GitHub repository: ${repository.full_name}`);
+    console.log(`README.md file exists: ${readMeContent !== null}`);
+
     let pullRequests = null;
     let mergedPullRequests = null;
 
     if (repository.fork) {
+        console.log("Repository is a fork.");
+
         const repoDetails = (await octokit.repos.get({ owner: repository.owner.login, repo: repository.name })).data;
 
         const upstream = repoDetails.parent!!;
 
-        console.log(upstream.owner.login, upstream.name);
+        console.log(`Found upstream repository: ${upstream.full_name}`);
+        console.log(`Looking through pull requests...`);
 
         const pulls = (
             await octokit.pulls.list({
@@ -22,7 +28,11 @@ export async function getGitHubRepositoryStatus(octokit: Octokit, repository: Gi
                 state: "all",
             })
         ).data.filter((pull) => {
-            console.log(pull.head.repo?.owner?.login);
+            console.log(`Found pull request ${pull.number}`);
+
+            const owner = pull.head.repo?.owner?.login;
+
+            console.log(`Owner: ${owner}`);
 
             return pull.head.repo?.owner?.login === repository.owner.login;
         });
@@ -36,7 +46,10 @@ export async function getGitHubRepositoryStatus(octokit: Octokit, repository: Gi
 
     const total = pullRequests?.length ?? 0;
 
+    console.log(`Total number of my pull requests: ${total}`);
+
     if (total !== 0) {
+        console.log(`The current repository only exists to create pull requests for the upstream, disregarding...`);
         return null;
     }
 
@@ -44,7 +57,11 @@ export async function getGitHubRepositoryStatus(octokit: Octokit, repository: Gi
 
     const merged = mergedPullRequests?.length ?? 0;
 
+    console.log(`Number of merged pull requests: ${merged}`);
+
     const owner = repository.owner.login;
+
+    console.log(`Current repository owner: ${owner}`);
 
     let entity: GitHubUser | GitHubOrganisation = (await octokit.users.getByUsername({ username: owner })).data;
 
@@ -54,11 +71,15 @@ export async function getGitHubRepositoryStatus(octokit: Octokit, repository: Gi
 
     const isOwned = isRepositoryOwned(octokit, repository, entity);
 
+    console.log(`Repository is owned: ${isOwned}`);
+
     if (!isOwned || (total !== 0 && merged !== 0)) {
+        console.log(`Current repository has only been contributed to... setting status as contributed.`);
         return "contributed";
     }
 
     if (readMeContent === null) {
+        console.log("No README.md content specified, counting repository as unfinished.");
         return "unfinished";
     }
 
