@@ -73,7 +73,7 @@ export async function getGitHubRepositoryStatus(octokit: Octokit, repository: Gi
 
     console.log(`Repository is owned: ${isOwned}`);
 
-    if (!isOwned || (total !== 0 && merged !== 0)) {
+    if (!isOwned || (total !== 0 && merged !== 0) /* TODO: Fix this, as the upstream repository should be added. */) {
         console.log(`Current repository has only been contributed to... setting status as contributed.`);
         return "contributed";
     }
