@@ -32,10 +32,14 @@ export async function isRepositoryOwned(octokit: Octokit, repository: GitHubRepo
 
     console.log(`Organisation roles: `);
 
-    (await octokit.orgs.listOrgRoles({ org: org.login })).data.roles?.forEach((role) => {
-        console.log(`Found role: ${role.name}`);
-        console.log(`Permissions: ${role.permissions}`);
-    })
+    try {
+        (await octokit.orgs.listOrgRoles({ org: org.login })).data.roles?.forEach((role) => {
+            console.log(`Found role: ${role.name}`);
+            console.log(`Permissions: ${role.permissions}`);
+        })
+    } catch (error) {
+        console.log("Failed to read organisation roles...");
+    }
 
     const admins = (await octokit.orgs.listMembers({org: org.login, role: "admin"})).data;
 
