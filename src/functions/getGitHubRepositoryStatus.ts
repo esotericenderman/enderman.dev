@@ -69,7 +69,7 @@ export async function getGitHubRepositoryStatus(octokit: Octokit, repository: Gi
         entity = (await octokit.orgs.get({ org: owner })).data
     }
 
-    const isOwned = isRepositoryOwned(octokit, repository, entity);
+    const isOwned = await isRepositoryOwned(octokit, repository, entity);
 
     console.log(`Repository is owned: ${isOwned}`);
 
