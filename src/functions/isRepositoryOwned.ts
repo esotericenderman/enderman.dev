@@ -61,6 +61,18 @@ export async function isRepositoryOwned(octokit: Octokit, repository: GitHubRepo
         }
     }
 
+    console.log("Fetching my permission level...");
+
+    const myPermissionLevel = (await octokit.repos.getCollaboratorPermissionLevel({owner: org.login, repo: repository.name, username: user})).data.role_name;
+
+    console.log(`My level: ${myPermissionLevel}`);
+
+    if (myPermissionLevel === "admin") {
+        console.log("Counting myself as an admin of this repository...");
+
+        admins.push((await octokit.users.getByUsername({username: user})).data)
+    }
+
     if (admins.length >= 2) {
         console.log("There are 2 or more admins in the organisation. There is no full ownership over this repository.");
         
