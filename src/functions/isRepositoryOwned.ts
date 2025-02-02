@@ -51,7 +51,11 @@ export async function isRepositoryOwned(octokit: Octokit, repository: GitHubRepo
 
     for (const collaborator of collaborators) {
         if (collaborator.permissions?.admin) {
-            console.log(`Collaborator ${collaborator.login} has admin permission within this repository, meaning it is probably shared ownership.`);
+            console.log(`Collaborator ${collaborator.login} has admin permission within this repository.`);
+
+            if (collaborator.login !== user) {
+                console.log("... Meaning it is probably shared ownership.")
+            }
 
             admins.push((await octokit.users.getByUsername({username: collaborator.login})).data);
         }
