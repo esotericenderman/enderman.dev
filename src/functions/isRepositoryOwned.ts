@@ -45,23 +45,15 @@ export async function isRepositoryOwned(octokit: Octokit, repository: GitHubRepo
 
     console.log("Searching for organisation admins...");
 
-    const orgRepos = (await octokit.repos.listForOrg({org: org.login})).data;
+    const collaborators = (await octokit.repos.listCollaborators({ owner: org.login, repo: repository.name, affiliation: "direct" })).data;
 
-    console.log(`Found ${orgRepos.length} organisation repositories.`);
+    console.log(`Found ${collaborators.length} direct collaborators.`);
 
-    for (const repo of orgRepos) {
-        console.log(`Checking repository ${repo.name}.`);
+    for (const collaborator of collaborators) {
+        if (collaborator.permissions?.admin) {
+            console.log(`Collaborator ${collaborator.login} has admin permission within this repository, meaning it is probably shared ownership.`);
 
-        const collaborators = (await octokit.repos.listCollaborators({ owner: org.login, repo: repo.name, affiliation: "direct" })).data;
-
-        console.log(`Found ${collaborators.length} direct collaborators.`);
-
-        for (const collaborator of collaborators) {
-            if (collaborator.permissions?.admin) {
-                console.log(`Collaborator ${collaborator.login} has admin permissions.`);
-
-                admins.push((await octokit.users.getByUsername({ username: collaborator.login })).data);
-            }
+            admins.push((await octokit.users.getByUsername({username: collaborator.login})).data);
         }
     }
 
