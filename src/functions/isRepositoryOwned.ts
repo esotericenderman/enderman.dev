@@ -41,7 +41,29 @@ export async function isRepositoryOwned(octokit: Octokit, repository: GitHubRepo
         console.log("Failed to read organisation roles...");
     }
 
-    const admins = (await octokit.orgs.listMembers({org: org.login, role: "admin"})).data;
+    const admins: GitHubUser[] = [];
+
+    console.log("Searching for organisation admins...");
+
+    const orgRepos = (await octokit.repos.listForOrg({org: org.login})).data;
+
+    console.log(`Found ${orgRepos.length} organisation repositories.`);
+
+    for (const repo of orgRepos) {
+        console.log(`Checking repository ${repo.name}.`);
+
+        const collaborators = (await octokit.repos.listCollaborators({ owner: org.login, repo: repo.name, affiliation: "direct" })).data;
+
+        console.log(`Found ${collaborators.length} direct collaborators.`);
+
+        for (const collaborator of collaborators) {
+            if (collaborator.permissions?.admin) {
+                console.log(`Collaborator ${collaborator.login} has admin permissions.`);
+
+                admins.push((await octokit.users.getByUsername({ username: collaborator.login })).data);
+            }
+        }
+    }
 
     if (admins.length >= 2) {
         console.log("There are 2 or more admins in the organisation. There is no full ownership over this repository.");
