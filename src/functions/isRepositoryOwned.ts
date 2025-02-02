@@ -34,6 +34,9 @@ export async function isRepositoryOwned(octokit: Octokit, repository: GitHubRepo
 
     if (admins.length >= 2) {
         console.log("There are 2 or more admins in the organisation. There is no full ownership over this repository.");
+        
+        console.log("List of admins:");
+        admins.forEach((admin) => console.log(admin.login));
         return false;
     }
 
