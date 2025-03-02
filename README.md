@@ -1,6 +1,6 @@
 # [enderman.dev][website]
 
-[![Project Status: Maintained][status]][root]
+[![Project status: maintained][status]][root]
 
 > My personal website.
 
