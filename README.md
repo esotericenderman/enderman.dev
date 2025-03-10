@@ -6,7 +6,9 @@
 
 ## License
 
-[enderman.dev][website] &copy; 2024-2025 [Esoteric Enderman][author] is licensed under the [AGPL 3.0][license] only.
+&copy; 2024-2025 [Esoteric Enderman][author]
+
+[enderman.dev][website] is licensed under the [AGPL 3.0][license] only.
 
 <!-- Link aliases -->
 
