@@ -2,7 +2,7 @@
 
 [![Project status: maintained][status]][root]
 
-> My personal website.
+My personal website.
 
 ## License
 
