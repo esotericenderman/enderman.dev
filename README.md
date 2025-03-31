@@ -41,9 +41,19 @@ To build the site from Markdown to HTML and CSS:
 
 Edit the `_config.yml` file to update personal information. Create new markdown files in the appropriate directories to add content.
 
+## License
+
+&copy; 2024-2025 [Esoteric Enderman][website]
+
+[enderman.dev][website] is licensed under the [AGPL 3.0][license] only.
+
 <!-- Link aliases -->
 
 [website]: https://enderman.dev
+
+<!-- Files -->
+
+[license]: ./LICENSE
 
 <!-- References -->
 
