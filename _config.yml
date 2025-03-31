@@ -2,7 +2,7 @@ title: Esoteric Enderman
 description: >
   This is my personal website made using Academic Pages.
 
-repository: "enderman.dev"
+repository: "esotericenderman/enderman.dev"
 
 name: &name "Esoteric Enderman"
 description: &description "I'm an ambitious software developer with an interest for maths and game development."
