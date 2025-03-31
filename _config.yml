@@ -26,6 +26,11 @@ author:
   bio: "My bio statement" # Add a short bio here
   location: "Location"
   github: esotericenderman
+  email: esotericenderman@gmail.com
+  # Add more social profiles if desired
+  # linkedin: your-linkedin
+  # twitter: your-twitter
+  # Add other links that will appear in your sidebar
 
 # Exclude from processing
 exclude:
