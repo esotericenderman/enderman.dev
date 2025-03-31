@@ -24,7 +24,7 @@ git checkout --orphan gh-pages || {
 
 # Remove everything except _site directory
 echo "Cleaning up branch..."
-find . -maxdepth 1 ! -name '_site' ! -name '.git' ! -name '.gitignore' ! -name 'CNAME' -exec rm -rf {} \;
+find . -maxdepth 1 ! -name '_site' ! -name '.git' ! -name '.gitignore' ! -name '.gitmodules' ! -name 'CNAME' -exec rm -rf {} \;
 
 # Move contents of _site to root
 echo "Moving built site to root..."
