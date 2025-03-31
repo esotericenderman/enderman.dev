@@ -17,6 +17,24 @@
     {% if site.author.bitbucket %}
       <li><a href="https://bitbucket.org/{{ site.author.bitbucket }}"><i class="fab fa-bitbucket" aria-hidden="true"></i> Bitbucket</a></li>
     {% endif %}
+    {% if site.author.gitlab %}
+      <li><a href="https://gitlab.com/{{ site.author.gitlab }}"><i class="fab fa-gitlab" aria-hidden="true"></i> GitLab</a></li>
+    {% endif %}
+    {% if site.author.discord %}
+      <li><a href="https://discord.com/users/500690028960284672"><i class="fab fa-discord" aria-hidden="true"></i> Discord</a></li>
+    {% endif %}
+    {% if site.author.npm %}
+      <li><a href="https://www.npmjs.com/~{{ site.author.npm }}"><i class="fab fa-npm" aria-hidden="true"></i> npm</a></li>
+    {% endif %}
+    {% if site.author.youtube %}
+      <li><a href="https://www.youtube.com/@{{ site.author.youtube }}"><i class="fab fa-youtube" aria-hidden="true"></i> YouTube</a></li>
+    {% endif %}
+    {% if site.author.modrinth %}
+      <li><a href="https://modrinth.com/user/{{ site.author.modrinth }}"><i class="fas fa-cube" aria-hidden="true"></i> Modrinth</a></li>
+    {% endif %}
+    {% if site.author.namemc %}
+      <li><a href="https://namemc.com/profile/{{ site.author.namemc }}"><i class="fas fa-cube" aria-hidden="true"></i> NameMC</a></li>
+    {% endif %}
     <!-- Feed and Sitemap links removed -->
   </ul>
 </div>
