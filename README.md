@@ -34,11 +34,6 @@ To build the site from Markdown to HTML and CSS:
 ## Directory Structure
 
 - `_data/`: Contains site data files like navigation
-- `_pages/`: Contains Markdown files for pages
-- `_posts/`: Blog posts
-- `_publications/`: Publication entries
-- `_talks/`: Talks/presentations
-- `_portfolio/`: Portfolio items
 - `images/`: Image files
 - `_config.yml`: Configuration for Jekyll and the theme
 
