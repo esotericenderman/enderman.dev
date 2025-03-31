@@ -54,7 +54,7 @@ git push -f origin gh-pages
 
 # Switch back to main branch
 echo "Switching back to main branch..."
-git checkout main
+git checkout academic-page
 
 echo "Cleaning up..."
 git restore ./
