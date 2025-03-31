@@ -10,8 +10,6 @@ redirect_from:
 
 Hello! I'm Esoteric Enderman, and this is my personal website. Here you can find information my interests.
 
-## About Me
-
 I'm a developer and technology enthusiast. This website serves as a platform to share my thoughts.
 
 ## Interests
