@@ -56,4 +56,8 @@ git push -f origin gh-pages
 echo "Switching back to main branch..."
 git checkout main
 
+echo "Cleaning up..."
+git restore ./
+git clean -fxd
+
 echo "Deployment completed successfully!"
