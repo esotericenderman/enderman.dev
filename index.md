@@ -1,9 +1,11 @@
 ---
-layout: home
-title: Home
-nav_order: 1
-description: "Welcome to Esoteric Enderman's website!"
 permalink: /
+title: "About me"
+excerpt: "About me"
+author_profile: true
+redirect_from: 
+  - /about/
+  - /about.html
 ---
 
 # Welcome to My Website
