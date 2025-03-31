@@ -4,6 +4,8 @@ description: >
 
 repository: "enderman.dev"
 
+name: &name "Esoteric Enderman"
+
 author:
   name: "Esoteric Enderman"
   avatar: "profile.png"
