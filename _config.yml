@@ -9,10 +9,23 @@ github_username: esotericenderman
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-minimal
+remote_theme: academicpages/academicpages.github.io
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jemoji
+  - jekyll-include-cache
+
+# Site Author
+author:
+  name: "Esoteric Enderman"
+  avatar: "profile.png"
+  bio: "My bio statement" # Add a short bio here
+  location: "Location"
+  github: esotericenderman
 
 # Exclude from processing
 exclude:
