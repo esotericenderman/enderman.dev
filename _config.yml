@@ -5,6 +5,7 @@ description: >
 repository: "enderman.dev"
 
 name: &name "Esoteric Enderman"
+description: &description "I'm an ambitious software developer with an interest for maths and game develpoment."
 
 author:
   name: "Esoteric Enderman"
