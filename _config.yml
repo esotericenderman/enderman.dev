@@ -1,12 +1,22 @@
 title: Esoteric Enderman
-email: esotericenderman@gmail.com
 description: >
   This is my personal website made using Academic Pages.
-baseurl: ""
+
+author:
+  name: "Esoteric Enderman"
+  avatar: "profile.png"
+  bio: "My bio statement"
+  location: "Location"
+  github: esotericenderman
+  email: esotericenderman@gmail.com
+
 url: "https://enderman.dev"
+baseurl: ""
+markdown: kramdown
+
+email: esotericenderman@gmail.com
 github_username: esotericenderman
 
-markdown: kramdown
 remote_theme: academicpages/academicpages.github.io
 plugins:
   - jekyll-feed
@@ -16,14 +26,6 @@ plugins:
   - jekyll-gist
   - jemoji
   - jekyll-include-cache
-
-author:
-  name: "Esoteric Enderman"
-  avatar: "profile.png"
-  bio: "My bio statement"
-  location: "Location"
-  github: esotericenderman
-  email: esotericenderman@gmail.com
 
 exclude:
   - Gemfile
