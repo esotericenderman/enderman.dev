@@ -5,12 +5,12 @@ description: >
 repository: "enderman.dev"
 
 name: &name "Esoteric Enderman"
-description: &description "I'm an ambitious software developer with an interest for maths and game develpoment."
+description: &description "I'm an ambitious software developer with an interest for maths and game development."
 
 author:
   name: "Esoteric Enderman"
   avatar: "profile.png"
-  bio: "I'm an ambitious software developer with an interest for maths and game develpoment."
+  bio: "I'm an ambitious software developer with an interest for maths and game development."
   location: "Internet"
   github: esotericenderman
   email: esotericenderman@gmail.com
