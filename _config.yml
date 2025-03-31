@@ -24,6 +24,8 @@ markdown: kramdown
 email: esotericenderman@gmail.com
 github_username: esotericenderman
 
+locale: "en-UK"
+
 remote_theme: academicpages/academicpages.github.io
 plugins:
   - jekyll-feed
