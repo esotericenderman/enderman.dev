@@ -12,6 +12,8 @@ author:
   github: esotericenderman
   email: esotericenderman@gmail.com
 
+title_separator: "-"
+
 url: "https://enderman.dev"
 baseurl: ""
 markdown: kramdown
