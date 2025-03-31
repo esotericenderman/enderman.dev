@@ -60,4 +60,13 @@ echo "Cleaning up..."
 git restore ./
 git clean -fxd
 
+echo "Git file system check:"
+git fsck
+
+git prune --expire=now
+git gc --prune --aggressive
+
+echo "After cleaning up:"
+git fsck
+
 echo "Deployment completed successfully!"
