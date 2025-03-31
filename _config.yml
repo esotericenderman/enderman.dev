@@ -28,13 +28,14 @@ locale: "en-UK"
 
 remote_theme: academicpages/academicpages.github.io
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
-  - jekyll-sitemap
   - jekyll-gist
   - jemoji
   - jekyll-include-cache
+
+atom_feed:
+  path: false
 
 exclude:
   - Gemfile
