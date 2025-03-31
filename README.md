@@ -46,10 +46,6 @@ To build the site from Markdown to HTML and CSS:
 
 Edit the `_config.yml` file to update personal information. Create new markdown files in the appropriate directories to add content.
 
-## Deployment
-
-The site is automatically built and deployed using GitHub Pages when changes are pushed to the main branch.
-
 <!-- Link aliases -->
 
 [website]: https://enderman.dev
