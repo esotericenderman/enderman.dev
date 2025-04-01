@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Hello! I'm Esoteric Enderman, and this is my personal website. Here you can find information about my interests.
+Hello! I'm Esoteric Enderman, and this is my personal website. Here you can find information about me and my interests.
 
 I'm a developer and technology enthusiast. This website serves as a platform to share my thoughts.
 
