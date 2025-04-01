@@ -3,3 +3,5 @@ main:
     url: "https://github.com/esotericenderman?tab=repositories"
   - title: "Skills"
     url: /skills/
+  - title: "Story"
+    url: /story/
