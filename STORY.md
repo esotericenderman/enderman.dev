@@ -22,3 +22,11 @@ At first, I struggled. I found it difficult to understand concepts such as expor
 I decided to create my own bot called **Slime Bot**. This bot grew extensively and at the end of its development had >20 commands and features including a quadratic equation solver, an 8ball, and even an embed builder that saved users' embeds to a MongoDB database.
 
 I learned TypeScript at the end of 2023 and migrated the bot over.
+
+## 2024
+
+My friend and I had a lot of free time in the summer of 2024, so we decided to learn how to develop **Minecraft plugins** with Java.
+
+We followed the **LearnSpigot** course on Udemy - an excellent course for plugin developers.
+
+We started developing our own Minecraft server with the intent of it becoming a big network - but we got burnt out after working on it for so long, and with the end of the summer, we didn't have much energy left to work on it, so we moved on to other things, namely a new minigame called [Firework Wars](https://github.com/fireworkwars). We worked on this game until the end of 2024.
