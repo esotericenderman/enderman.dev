@@ -4,9 +4,7 @@
 
 This branch contains the version of my website made using [Academic Pages][academic-pages].
 
-## Building the Site
-
-To build the site from Markdown to HTML and CSS:
+## Running a Development Server
 
 1. Make sure you have Ruby and Bundler installed:
    ```bash
