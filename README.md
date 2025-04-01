@@ -19,15 +19,9 @@ To build the site from Markdown to HTML and CSS:
    bundle install
    ```
 
-3. Build the site:
+3. To run a local development server:
    ```bash
-   ./scripts/build.sh
-   ```
-   This will generate the site in the `_site` directory.
-
-4. To run a local development server:
-   ```bash
-   bundle exec jekyll serve --livereload
+   ./scripts/run.sh
    ```
    Then visit http://localhost:4000 in your browser.
 
