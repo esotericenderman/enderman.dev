@@ -30,3 +30,11 @@ My friend and I had a lot of free time in the summer of 2024, so we decided to l
 We followed the **LearnSpigot** course on Udemy - an excellent course for plugin developers.
 
 We started developing our own Minecraft server with the intent of it becoming a big network - but we got burnt out after working on it for so long, and with the end of the summer, we didn't have much energy left to work on it, so we moved on to other things, namely a new minigame called [Firework Wars](https://github.com/fireworkwars). We worked on this game until the end of 2024.
+
+### PaperMC Pull Request and Contribution
+
+During my Minecraft plugin development journey, I contributed to the PaperMC project by submitting a pull request that improved the explosion API. This was a significant milestone as it was my first contribution to a major open-source project. The changes I added allowed plugin developers to do more with explosions within the game.
+
+### LearnSpigot Christmas Event Plugin Contribution
+
+As part of the LearnSpigot community, I contributed to the plugin powering their Christmas event. In particular, I added most features of the "King of the Hill" gamemode in a GitHub pull request. It was a great experience to contribute to something that so many people enjoyed.
