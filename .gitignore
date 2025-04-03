@@ -30,3 +30,6 @@ src/data
 
 # Private configuration files
 config/privateConfig.json
+
+# Logs
+*.log
