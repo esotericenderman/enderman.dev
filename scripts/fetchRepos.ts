@@ -26,7 +26,11 @@ async function fetchRepositories() {
       if (repo === null) continue;
       if (allRepos.some((r) => r?.id === repo.id)) continue;
 
-      const data = (await RepositoryData.fromGitHubRepository(repo, octokit));
+      let data: RepositoryData | null = null;
+
+      try {
+        data = (await RepositoryData.fromGitHubRepository(repo, octokit));
+      } catch (error) {}
 
       if (data === null) {
         continue repoLoop;
