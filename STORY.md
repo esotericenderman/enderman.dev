@@ -5,6 +5,8 @@ permalink: /story/
 excerpt: "My programming story."
 ---
 
+This is the story of how I acquired all the skills that I have today.
+
 ## 2023
 
 ### JavaScript and Discord.JS
