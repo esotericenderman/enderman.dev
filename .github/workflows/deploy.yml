@@ -19,6 +19,9 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+          token: ${{ secrets.PAT }}
       - name: Setup pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
