@@ -6,9 +6,6 @@ _site/
 .bundle/
 vendor/
 
-# Ruby dependency files
-Gemfile.lock
-
 # Log files
 *.log
 
