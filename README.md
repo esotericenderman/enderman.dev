@@ -19,7 +19,7 @@ This branch contains the version of my website made using [Academic Pages][acade
 
 3. To run a local development server:
    ```bash
-   ./scripts/run.sh
+   bundle exec jekyll serve
    ```
    Then visit http://localhost:4000 in your browser.
 
