@@ -20,8 +20,8 @@
     {% if site.author.gitlab %}
       <li><a href="https://gitlab.com/{{ site.author.gitlab }}"><i class="fab fa-gitlab" aria-hidden="true"></i> GitLab</a></li>
     {% endif %}
-    {% if site.author.discord %}
-      <li><a href="https://discord.com/users/500690028960284672"><i class="fab fa-discord" aria-hidden="true"></i> Discord</a></li>
+    {% if site.author.discord and site.author.discord.id %}
+      <li><a href="https://discord.com/users/{{ site.author.discord.id }}"><i class="fab fa-discord" aria-hidden="true"></i> Discord</a></li>
     {% endif %}
     {% if site.author.npm %}
       <li><a href="https://www.npmjs.com/~{{ site.author.npm }}"><i class="fab fa-npm" aria-hidden="true"></i> npm</a></li>

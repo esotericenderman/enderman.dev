@@ -14,7 +14,8 @@ author:
   location: "Internet"
   github: esotericenderman
   email: esotericenderman@gmail.com
-  discord: esotericenderman
+  discord:
+    id: 500690028960284672
   gitlab: esotericenderman
   npm: esotericenderman
   modrinth: esotericenderman
