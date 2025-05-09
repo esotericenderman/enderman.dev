@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/esotericenderman
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://enderman.dev
+  * I am esotericenderman (https://keybase.io/esotericenderman) on keybase.
+  * I have a public key ASDVcnQ51lhuCxfmNupSlTmxx7bokkCIIsVhcuiOhBZD9wo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d5727439d6586e0b17e636ea529539b1c7b6e892408822c56172e88e841643f70a",
+      "host": "keybase.io",
+      "kid": "0120d5727439d6586e0b17e636ea529539b1c7b6e892408822c56172e88e841643f70a",
+      "uid": "82076d77561d4e38fa6a4570ea93c719",
+      "username": "esotericenderman"
+    },
+    "merkle_root": {
+      "ctime": 1746810025,
+      "hash": "5d4f174b99b212937f98270abc696a17329057223e4eebe9df46c28ceeb7ef3f9f7211e93767b693e4f7b39e8152aba7d810d07427cfc7f00f5244d910ac3e34",
+      "hash_meta": "9f78e1a8d3e603f79e1136b049fa12fad0adbb9b4d0af0a5698ee3cd62848a1c",
+      "seqno": 26780738
+    },
+    "service": {
+      "entropy": "sxfHP5wwch163otLItfAUAoR",
+      "hostname": "enderman.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.5.1"
+  },
+  "ctime": 1746810137,
+  "expire_in": 504576000,
+  "prev": "f5cfaf8e2c999ddbb128945146cb8184109066187881566b84b4e03aac86b07f",
+  "seqno": 13,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg1XJ0OdZYbgsX5jbqUpU5sce26JJAiCLFYXLojoQWQ/cKp3BheWxvYWTESpcCDcQg9c+vjiyZnduxKJRRRsuBhBCQZhh4gVZrhLTgOqyGsH/EIIvRKb3RfJZhLoGU/+8nwsEdTYLzWtbpaZOkuvKMsCt5AgHCo3NpZ8RAS7HmaRbHtREyFmSV582WfM4hNCMtbRCaqlhIxkJxeJkooP8EjuL0vx3mcu28tddRJS/LK0f0gIZ4CR4cIeuIDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIPqXyfYV7fYVNOqQ0ouQxXes1pei0mB/Neg5px4y41FRo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/esotericenderman
+
+==================================================================
